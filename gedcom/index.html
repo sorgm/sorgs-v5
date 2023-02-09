@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>GEDCOM analysis</title>
+  <meta name="description" content="GEDCOM analysis">
+  <meta name="author" content="Grumpy">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+  <h1>GEDCOM analysis</h1>
+  <p id="test"></p>
+
+  <pre id="result"></pre>
+
+<script>
+var gedcom = {};
+
+($((function($){
+//var gedcom = {};
+
+$.get( "wikitree.ged", function( data ) {
+  $( "#result" ).html(
+    data
+    .split('\n')
+//    .map((e,i) => (e.startsWith('0') ? (i + ": " + e) : null))
+//    .filter(e => e!=null)
+    .join('\n')
+  );
+
+
+  var rec = {}; // current record
+  data.split('\n').forEach(function(e,i,arr) {
+    s = e.split(' ');
+    if (s.length>2) {
+      e2 = e.substring(s[0].length+s[1].length+2);
+    }
+
+    switch (s[0]) {
+      case '0':
+        // Level 0
+
+        switch (s[1]) {
+          case 'HEAD':
+            rec = {};
+            gedcom.header = rec;
+            break;
+          case 'TRLR':
+            rec = {};
+            gedcom.trailer = rec;
+            break;
+          default:
+            
+            switch (s[2]) {
+              case 'FAM':
+                rec = {};
+                if (!gedcom.families) {gedcom.families = {}};
+                gedcom.families[s[1]]=rec;
+                break;
+
+              case 'INDI':
+                rec = {};
+                if (!gedcom.individuals) {gedcom.individuals = {}};
+                gedcom.individuals[s[1]]=rec;
+                break;
+
+              case 'OBJE':
+                rec = {};
+                if (!gedcom.objects) {gedcom.objects = {}};
+                gedcom.objects[s[1]]=rec;
+                break;
+
+              case 'NOTE':
+                rec = {};
+                if (!gedcom.notes) {gedcom.notes = {}};
+                gedcom.notes[s[1]]=rec;
+                break;
+
+              case 'REPO':
+                rec = {};
+                if (!gedcom.repositories) {gedcom.repositories = {}};
+                gedcom.repositories[s[1]]=rec;
+                break;
+
+              case 'SOUR':
+                rec = {};
+                if (!gedcom.sources) {gedcom.sources = {}};
+                gedcom.sources[s[1]]=rec;
+                break;
+
+              case 'SUBN':
+                rec = {};
+                if (!gedcom.submissions) {gedcom.submissions = {}};
+                gedcom.submissions[s[1]]=rec;
+                break;
+
+              case 'SUBM':
+                rec = {};
+                if (!gedcom.submitter) {gedcom.submitter = {}};
+                gedcom.submitter[s[1]]=rec;
+                break;
+
+              default:
+                if (!gedcom.errors) {gedcom.errors = [];}
+	        gedcom.errors.push({linenumber: i, linetext: e});
+                break;
+            }
+            break;
+        }
+        break;
+      case '1':
+        // Level 1
+
+        switch (s[1]) {
+          case 'NAME':
+            rec.name = e2;
+            break;
+
+          default:
+            //temp
+            break;
+        }
+        break;
+      case '2':
+        // Level 2
+        break;
+      case '3':
+        // Level 3
+        break;
+      case '':
+        // empty
+        break;
+      default:
+        if (!gedcom.errors) {gedcom.errors = [];}
+	gedcom.errors.push({linenumber: i, linetext: e});
+        break;
+    }
+
+  });
+
+  if (!!gedcom.errors) {
+    $( "#result" ).html(
+      gedcom.errors
+      .map(e=>e.linenumber+': '+e.linetext)
+      .join('\n')
+    );
+  }
+
+  $("#test").html(
+    Object.keys(gedcom.individuals).length + " individuals in " +
+    Object.keys(gedcom.families).length + " families."
+  );
+
+});
+
+})(jQuery)));
+</script>
+</body>
+</html>

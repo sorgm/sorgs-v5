@@ -1,0 +1,88 @@
+/* Standard-Tags */
+
+body { margin-top:10px; margin-bottom:10px; background-color:#FFFFE0 }
+
+p,h1,h2,h3,h4,ul,ol,li,div,td,th,address,blockquote,nobr,b,i {
+  font-family:Comic Sans MS,sans-serif; 
+  font-size:10pt; 
+  color:#000000
+}
+
+select,option {
+  background-color:#FFFFE0
+}
+
+h1 { font-size:18pt; line-height:70pt; vertical-align:middle; text-align:center; 
+     background-color:#DDDD80; background-image:url(images/muster.gif);
+     color:#FFFFFF }
+
+a:link { color:#000030; text-decoration:underline; }
+a:visited { color:#000080; text-decoration:underline; }
+a:active { color:#000000; text-decoration:none; }
+
+/* Styles fuer class="menue" */
+
+body.menue { background-image:url(images/muster.gif); }
+body.menue p {  color:#FFFFFF; text-decoration:none; cursor:pointer; 
+                font-size:10pt; }
+body.menue a:link { color:#FFFFFF; text-decoration:underline; }
+body.menue a:visited { color:#FFFFFF; text-decoration:underline; }
+body.menue a:active { color:#FFFFFF; text-decoration:none; }
+
+/* Styles fuer class="menueicon" */
+
+body.menueicon { background-image:url(images/muster.gif); vertical-align:middle;
+                 text-align:center }
+
+/* Styles fuer class="menueinfo" */
+
+body.menueinfo { background-image:url(images/muster.gif); }
+body.menueinfo p { color:#FFFFFF; font-size:8pt; }
+body.menueinfo a:link { color:#FFFFFF; text-decoration:underline; }
+body.menueinfo a:visited { color:#FFFFFF; text-decoration:underline; }
+body.menueinfo a:active { color:#FFFFFF; text-decoration:none; }
+
+/* Styles fuer class="metw" */
+
+body.metw h1 {
+  font-size:18pt; 
+  line-height:70pt; 
+  vertical-align:middle; 
+  text-align:center; 
+  background-color:#000000; 
+  background-image:url(images/metw.gif);
+  background-repeat:no-repeat;
+  background-position:center;
+  color:#FFFFFF
+}
+
+select.metw {
+  width:80pt
+}
+
+/* Styles fuer class="mittelalter" */
+
+body.mittelalter { margin-top:10px; margin-bottom:10px; 
+               background-color:#FFFFE0;
+               background-image:url(images/mittelalter.gif);
+               background-repeat:no-repeat;
+               background-attachment:fixed;
+               background-position:center 70pt; }
+
+/* Styles fuer class="buecher" */
+
+body.buecher { margin-top:10px; margin-bottom:10px; 
+               background-color:#FFFFE0;
+               background-image:url(images/buecher.gif);
+               background-repeat:no-repeat;
+               background-attachment:fixed;
+               background-position:center 70pt; }
+
+/* Styles fuer class="spiele" */
+
+body.spiele { margin-top:10px; margin-bottom:10px; 
+               background-color:#FFFFE0;
+               background-image:url(images/spiele.gif);
+               background-repeat:no-repeat;
+               background-attachment:fixed;
+               background-position:center 70pt; }
