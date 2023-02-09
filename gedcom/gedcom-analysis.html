@@ -6,7 +6,7 @@
 
   <title>GEDCOM analysis</title>
   <meta name="description" content="GEDCOM analysis">
-  <meta name="author" content="Grumpy">
+  <meta name="author" content="Manfred Sorg (sorgm)">
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
@@ -107,7 +107,7 @@ $.get( "wikitree.ged", function( data ) {
 
               default:
                 if (!gedcom.errors) {gedcom.errors = [];}
-	        gedcom.errors.push({linenumber: i, linetext: e});
+	              gedcom.errors.push({linenumber: i, linetext: e});
                 break;
             }
             break;
@@ -137,7 +137,7 @@ $.get( "wikitree.ged", function( data ) {
         break;
       default:
         if (!gedcom.errors) {gedcom.errors = [];}
-	gedcom.errors.push({linenumber: i, linetext: e});
+	      gedcom.errors.push({linenumber: i, linetext: e});
         break;
     }
 

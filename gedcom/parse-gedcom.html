@@ -1,0 +1,280 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>GEDCOM analysis</title>
+	<meta name="description" content="GEDCOM analysis">
+	<meta name="author" content="Manfred Sorg">
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- source: https://wzrd.in/standalone/parse-gedcom@latest -->
+	<script src='parse-gedcom-v20191114-backup.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+<style>
+	body {
+		margin-top: 50px;
+		margin-left: 100px;
+		margin-right: 100px;
+		font-size: 12pt;
+	}
+	#searchRecord {
+		width: 600px;
+		font-size: 18pt;
+	}
+	#searchRecordFrame {
+		width: 600px;
+		font-size: 8pt;
+	}
+	.gedcomrecord {
+		margin-left: 10px;
+	}
+	.gedcomtag {
+		font-family: monospace;
+		font-size: 8pt;
+		border: 1px solid black;
+		padding: 1px;
+	}
+	.gedcomdata {
+		position: absolute;
+		left: 180px;
+	}
+</style>
+</head>
+
+<body>
+
+<div id="vuecontainer">
+	<h1>GEDCOM analysis</h1>
+
+	<p id="searchRecordFrame">
+		<input v-model="searchRecord" placeholder="(search)" id="searchRecord"><br/>
+		<span v-html="tree.length + ' records available, ' + searchResults.length + ' found: '">
+			GEDCOM is being parsed.
+		</span>
+		<span v-for="r in searchResults">
+			<a	href="#_click_to_switch_"
+				v-if="r.pointer[0]=='@'"
+				class="linktootherrecord"
+				@click="setCurrentRecord(r.pointer)"
+				v-html="r.pointer.replace(/@/g,' ')"
+				:title="r.tree[0].data">
+			</a>&nbsp;
+		</span>
+	</p>
+		
+	<individual
+		v-bind:r="getCurrentRecord"
+		v-on:e="eventHandler($event)"
+	></individual>
+
+	<gedcomrecord
+		v-bind:r="getCurrentRecord"
+		v-on:e="eventHandler($event)"
+	></gedcomrecord>
+</div>
+
+<script id="individual" type="text/template">
+	<div v-if="((!!r) && (r.tag=='INDI'))">
+		{{ r.GivenName }} {{ r.Surname }}, {{ r.BirthDate }}<br/>
+		{{ Object.keys(r) }}
+	</div>
+</script>
+
+<script id="gedcomrecord" type="text/template">
+	<div class="gedcomrecord" v-if="!!r">
+		<span class="gedcomtag">
+			{{ r.tag }}
+		</span>
+		<span class="gedcomdata" v-if="['WWW','FILE'].includes(r.tag)">
+			<a	:href="r.data"
+				class="external"
+				target="_blank">
+				{{ r.data }}
+			</a>
+		</span>
+		<span class="gedcomdata" v-else-if="r.data[0] == '@'">
+			<a	href="#_click_to_switch_"
+				class="linktootherrecord"
+				@click="$emit('e',{setCurrentRecord: r.data})">
+				{{ recordname }}
+			</a>
+		</span>
+		<span class="gedcomdata" v-else="?">
+			{{ r.pointer }}
+			{{ r.data }}
+		</span>
+		<gedcomrecord
+			v-for="subr in r.tree"
+			v-bind:r="subr"
+			v-on:e="$emit('e', $event)"
+		></gedcomrecord>
+	</div>
+</script>
+
+<script>
+($(() => {
+
+var vuedata = {
+	raw: "",
+	tagmap: [],
+	tree: [],
+	individuals: [],
+	currentPointer: "",
+	searchRecord: "",
+	searchResults: []
+};
+
+Vue.component('individual', {
+	props: ['r'],
+	template: '#individual'
+});
+
+Vue.component('gedcomrecord', {
+	props: ['r'],
+	template: '#gedcomrecord',
+	computed: {
+		recordname: function() {
+			var thisrec = vuedata.tree.filter((e) => (e.pointer==this.r.data))[0];
+			if (!thisrec) {
+				return this.r.data + " N/A";
+			} else if (thisrec.tag == 'INDI') {
+				var namerec = thisrec.tree.filter((e) => (e.tag == 'NAME'))[0];
+				if (!namerec) {
+					return this.r.data + " N/N";
+				} else {
+					return namerec.data + " #" + vuedata.individuals[this.r.data].pointer;
+				}
+			} else if (thisrec.tag == 'FAM') {
+				var husbrec = thisrec.tree.filter((e) => (e.tag == 'HUSB'))[0];
+				var wiferec = thisrec.tree.filter((e) => (e.tag == 'WIFE'))[0];
+				if ((!husbrec) || (!wiferec)) {
+					return this.r.data;
+				} else if (husbrec.data == vuedata.currentPointer) {
+					var wifesrec = vuedata.tree.filter((e) => (e.pointer==wiferec.data))[0];
+					var wifesnamerec = wifesrec.tree.filter((e) => (e.tag == 'NAME'))[0];
+					return wifesnamerec.data;
+				} else if (wiferec.data == vuedata.currentPointer) {
+					var husbsrec = vuedata.tree.filter((e) => (e.pointer==husbrec.data))[0];
+					var husbsnamerec = husbsrec.tree.filter((e) => (e.tag == 'NAME'))[0];
+					return husbsnamerec.data;
+				} else {
+					var wifesrec = vuedata.tree.filter((e) => (e.pointer==wiferec.data))[0];
+					var wifesnamerec = wifesrec.tree.filter((e) => (e.tag == 'NAME'))[0];
+					var husbsrec = vuedata.tree.filter((e) => (e.pointer==husbrec.data))[0];
+					var husbsnamerec = husbsrec.tree.filter((e) => (e.tag == 'NAME'))[0];
+					return husbsnamerec.data + " + " + wifesnamerec.data;
+				}
+			} else {
+				return this.r.data + " " + thisrec.tag;
+			}
+		}
+	}
+});
+
+var vue = new Vue({
+	el: "#vuecontainer",
+	data: vuedata,
+	computed: {
+		getCurrentRecord: function(p) {
+			if (this.currentPointer == "") {
+				return this.tree[0]; // HEAD
+			} else if (this.currentPointer.match(/@I.*@/)) {
+				return this.individuals[this.currentPointer]
+						||this.errorRecord("individual not found");
+			} else {
+				var r = this.tree.filter((e) => (e.pointer == this.currentPointer));
+				if (r.length == 0) {
+					return this.errorRecord("record not found");
+				} else {
+					return r[0];
+				}
+			}
+		},
+		errorRecord: function(errtext) {
+			return { "pointer": "", "tag": "ERROR", "data": errtext, "tree": [] };
+		}/*,
+		getName: function(p) {return this.tree.filter((e) => (e.pointer==p))[0].tree[0].data;}*/
+	},
+	methods: {
+		eventHandler: function(e) {return this[Object.keys(e)[0]](e[Object.keys(e)[0]]);},
+		setCurrentRecord: function(p) {this.currentPointer=p;}
+	},
+	watch: {
+		searchRecord: function(newValue, oldValue) {
+			var r = this.tree.filter((e) =>
+				((e.pointer!="" || newValue=="") && (e.tree.length>0) &&
+				(e.tree[0].data.toLowerCase().includes(newValue.toLowerCase()))));
+			if ((r.length == 0) || (newValue=="")) {
+				this.currentPointer = "";
+				this.searchResults = [];
+			} else {
+				this.currentPointer = r[0].pointer;
+				this.searchResults = r.splice(0,20);
+			}
+		},
+		raw: function(newValue, oldValue) {
+			this.tree = parseGedcom.parse(newValue);
+		},
+		tree: function(newValue, oldValue) {
+			var newIndi = [];
+			newValue
+				.filter((rec) => (rec.tag=="INDI"))
+				.forEach((rec) => {
+					var tag = this.tagmap[rec.tag]||rec.tag;
+					var indirec = $.extend({},rec);
+					if (!!rec.data) {
+						indirec[tag] = rec.data;
+					}
+					
+					rec.tree.forEach((par) => {
+						var tag = this.tagmap[par.tag]||par.tag
+						if (!!par.data) {
+							if (!indirec[tag]) {
+								indirec[tag] = par.data;
+							} else {
+								indirec[tag] += '/n' + par.data;
+							}
+						}
+						par.tree.forEach((sub) => {
+							var tag = this.tagmap[par.tag+'_'+sub.tag]||(par.tag+'_'+sub.tag);
+							if (!!sub.data) {
+								if (!indirec[tag]) {
+									indirec[tag] = sub.data;
+								} else {
+									indirec[tag] += '/n' + sub.data;
+								}
+							}
+						});
+					});
+					
+					newIndi[rec.pointer] = indirec;
+				});
+			this.individuals = newIndi;
+		}
+	}
+});
+
+vue.tagmap = {
+	"NAME":			"FullName",
+	"NAME_GIVN":	"GivenName",
+	"NAME__MIDN":	"MiddleName",
+	"NAME_SURN":	"Surname",
+	"NAME_NICK":	"Nickname",
+	"NAME__MARN":	"MarriedName",
+	"SEX":			"Sex",
+	"BIRT_DATE":	"BirthDate",
+	"BIRT_PLAC":	"BirthPlace",
+	"DEAT_DATE":	"DeathDate",
+	"DEAT_PLAC":	"DeathPlace",
+	"WWW":			"URL"
+}
+
+$.get("wikitree.ged", function( data ) {vue.raw = data;})
+}));
+
+</script>
+</body>
+</html>

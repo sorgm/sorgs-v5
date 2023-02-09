@@ -189,8 +189,8 @@ XGD({
         }
     });
     
-    console.log(Nodes);
-    console.log(Edges);
+    //console.log(Nodes);
+    //console.log(Edges);
     
     /***************************************************************************************************
         Cytoscape: display graph
