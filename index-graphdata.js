@@ -2,8 +2,8 @@ XGD({
 	"Nodes": [
 		{
 			"position": {
-				"x": 0.21991181569516183,
-				"y": 0.38188261149233504
+				"x": 0.4016322113012245,
+				"y": 0.41269923109344453
 			},
 			"key": "Interessen",
 			"xyzzz": "sbkjkh",
@@ -45,16 +45,16 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.09532295691099478,
-				"y": 0.33578225141477996
+				"x": 0.3034963214976869,
+				"y": 0.2946934252799674
 			},
 			"key": "Naturphilosophie",
 			"description": "\"Die Naturphilosophie versucht, die Natur in ihrer Gesamtheit aufzufassen und in ihren allgemeinen wie partikulären Strukturen zu beschreiben, theoretisch zu erklären und zu deuten.\" (Naturphilosophie-Wikipedia)\nMathematik, Astronomie, Geografie, Philosophie (insbesondere Ethik, Ontologie und Kosmologie)"
 		},
 		{
 			"position": {
-				"x": 0.0953,
-				"y": 0.2
+				"x": 0.28507129920886287,
+				"y": 0.1589111738651875
 			},
 			"key": "piermittlung",
 			"iri": "piermittlung.html",
@@ -65,8 +65,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 1.1498764215971582,
-				"y": 0.5395201104874322
+				"x": 1.0325632548134973,
+				"y": 0.5456834344076539
 			},
 			"key": "OneDrive",
 			"iri": "https://onedrive.live.com/?id=root&cid=9A60FB056DE4690E"
@@ -187,8 +187,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.06665879364884554,
-				"y": 0.3918595485164761
+				"x": 0.21617557484370728,
+				"y": 0.33638963323447924
 			},
 			"key": "Tanzen_Musikstile_und_Singen",
 			"description": "Nahezu jede Form des Tanzens liegt mir, ich habe aber keinen Bedarf daran, Musik nur zu hören. Die Strukturierung von Musik in Musikstile als Hilfsmittel, um über Musik zu reden liegt mir seit langem.\nSingen würde ich gerne, aber einen Chor zu finden der passt und dann noch den Mut zu haben anzurufen ist mir noch nicht gelungen.",
@@ -205,8 +205,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.07910459774110622,
-				"y": 0.464513743444068
+				"x": 0.1492624719940798,
+				"y": 0.4110982694688117
 			},
 			"key": "Schreiben_Malen_Werken",
 			"description": "Woran ich hier scheitere, ist mir unklar. Eigentlich liegt das Problem darin, dass ich mit Kunst um der Kunst willen nicht klarkomme. Sobald es einen Grund gibt, setze ich alles um.",
@@ -214,8 +214,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.1147751380870398,
-				"y": 0.5037103276743669
+				"x": 0.21943688492344302,
+				"y": 0.49960144506088566
 			},
 			"key": "Die_Welt_entdecken",
 			"description": "Die Welt beginnt vor der Haustür, der nächste Bach ist bereits interessant, das nächste Tal bietet aufregende Einsichten. Wald und Wildnis sind allerdings schon ohne Auto nicht zu erreichen und für fremde Länder braucht es ggf. Schiff und Flugzeug. Ökologische Überlegungen halten mich von vielem ab und mit der Familie sind nicht alle Ziele erreichbar.",
