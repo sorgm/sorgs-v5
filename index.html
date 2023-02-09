@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Startseite</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+
+<div id="cy"></div>
+
+<div id="vuecontainer">
+	<small>
+		<a href="sitemap.html" title="Impressum und Sitemap">sorgs.de</a>, right-click to follow links
+		<a :href="rawdatahref()" download="index-graphdata.js" title="download graph data">*</a>
+		<input v-model="EditMode" type="checkbox" id="EditMode-checkbox" title="edit mode"/>
+	</small>
+
+	<aside v-if="!!SelectedNode && !EditMode" class="info node">
+		<img v-if="!!SelectedNode.symbol" :src="SelectedNode.symbol" style="float:right" />
+		<h1 v-if="!SelectedNode.iri">{{ SelectedNode.label||SelectedNode.key }}</h1>
+		<h1 v-if="!!SelectedNode.iri"><a :href="SelectedNode.iri">{{ SelectedNode.label||SelectedNode.key }}</a></h1>
+		<p v-if="!SelectedNode.label">{{ SelectedNode.key }}</p>
+		<p v-if="!!SelectedNode.group">({{ SelectedNode.group.key }})</p>
+		<template v-if="!!SelectedNode.description">
+			<p v-for="(c,i) in SelectedNode.description.split('\n')" :key="i" v-html="c"></p>
+		</template>
+
+		<h3 v-if="!!SelectedNode.classes">classes</h3>
+		<ul v-if="!!SelectedNode.classes">
+			<li v-for="(c,i) in SelectedNode.classes" :key="i" v-html="c"></li>
+		</ul>
+		<h3 v-if="Object.keys(SelectedNode.isTargetOf).length>0">is target of</h3>
+		<ul v-if="Object.keys(SelectedNode.isTargetOf).length>0">
+			<li v-for="(c,i) in Object.keys(SelectedNode.isTargetOf)" :key="i" v-html="c"></li>
+		</ul>
+		<h3 v-if="Object.keys(SelectedNode.isSourceOf).length>0">is source of</h3>
+		<ul v-if="Object.keys(SelectedNode.isSourceOf).length>0">
+			<li v-for="(c,i) in Object.keys(SelectedNode.isSourceOf)" :key="i" v-html="c"></li>
+		</ul>
+	</aside>
+
+	<aside v-if="!!SelectedNode && !!EditMode" class="info node">
+		<dl v-if="Object.keys(SelectedNode).length>0">
+			<template v-for="(c,i) in Object.keys(SelectedNode).concat(['label','iri','description','color','comment'].filter((c) => !Object.keys(SelectedNode).includes(c)))" v-if="!['position','group','classes'].includes(c)">
+				<dt>{{ c }}</dt>
+				<dd v-if="c=='description'"><textarea :value="SelectedNode[c]" @change="nodeAttributeChanged" :id="SelectedNode.key+'.'+c"></textarea></dd>
+				<dd v-if="c!='description'"><input :value="SelectedNode[c]" @change="nodeAttributeChanged" :id="SelectedNode.key+'.'+c"/></dd>
+			</template>
+		</dl>
+		<input value="" @change="newNodeAttribute" :id="SelectedNode.key+'.new'" placeholder="new attribute" />
+	</aside>
+
+	<aside v-if="!!SelectedEdge && !EditMode" class="info edge">
+		<h1>{{ SelectedEdge.label||SelectedEdge.key }}</h1>
+		<p v-if="!SelectedEdge.label">{{ SelectedEdge.key }}</p>
+		<template v-if="!!SelectedEdge.description">
+			<p v-for="(c,i) in SelectedEdge.description.split('\n')" :key="i" v-html="c"></p>
+		</template>
+		<h3 v-if="!!SelectedEdge.classes">classes</h3>
+		<ul v-if="!!SelectedEdge.classes">
+			<li v-for="(c,i) in SelectedEdge.classes" :key="i" v-html="c"></li>
+		</ul>
+	</aside>
+
+	<aside v-if="!!SelectedEdge && !!EditMode" class="info edge">
+		<dl v-if="Object.keys(SelectedEdge).length>0">
+			<template v-for="(c,i) in Object.keys(SelectedEdge).concat(['label','description','color','comment'].filter((c) => !Object.keys(SelectedEdge).includes(c)))" v-if="!['source','target','group','classes'].includes(c)">
+				<dt>{{ c }}</dt>
+				<dd v-if="c=='description'"><textarea :value="SelectedEdge[c]" @change="edgeAttributeChanged" :id="SelectedEdge.key+'.'+c"></textarea></dd>
+				<dd v-if="c!='description'"><input :value="SelectedEdge[c]" @change="edgeAttributeChanged" :id="SelectedEdge.key+'.'+c"/></dd>
+			</template>
+		</dl>
+		<input value="" @change="newEdgeAttribute" :id="SelectedEdge.key+'.new'" placeholder="new attribute" />
+	</aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.16.2/cytoscape.min.js"></script>
+<script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
+<script src="index.js"></script>
+<script type='text/javascript' charset='utf-8' src='index-graphdata.js'></script>
+<link href="index.css" rel="stylesheet" />
+</body>
+</html>

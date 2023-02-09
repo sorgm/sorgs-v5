@@ -1,0 +1,62 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../sorgs.css">
+<head>
+<title>Marine-R&auml;tsel</title>
+<script language="JavaScript" src="marineraetsel.js" type="text/javascript"></script>
+<script language="JavaScript">
+function Init()
+{
+	var i;
+
+	if (window.frames.length==0) {
+		window.setTimeout("Init()",100);
+	}
+	else {
+		for (i=1; i<=3; i++) {
+			NeuesRaetsel();
+			Anzeigen(arrdisplay,window.frames["ergebnis" + i].document,75,0);
+			AnzeigenSchiffe(window.frames["schiffe" + i].document,75);
+		}
+		window.setTimeout("print();close();",100);
+	}
+}
+
+	Init();
+</script>
+<style type="text/css">
+</style>
+</head>
+<body class="spiele">
+
+<table width=100%>
+	<colgroup>
+		<col width="30%">
+		<col width="296">
+		<col width="30%">
+		<col width="137">
+		<col width="30%">
+	</colgroup>
+	<tr height=296>
+		<td>&nbsp</td>
+		<td><iframe name="ergebnis1" width=296 height=296></iframe></td>
+		<td>&nbsp</td>
+		<td><iframe name="schiffe1" width=137 height=296></iframe></td>
+		<td>&nbsp</td>
+	</tr>
+	<tr height=296>
+		<td>&nbsp</td>
+		<td><iframe name="ergebnis2" width=296 height=296></iframe></td>
+		<td>&nbsp</td>
+		<td><iframe name="schiffe2" width=137 height=296></iframe></td>
+		<td>&nbsp</td>
+	</tr>
+	<tr height=296>
+		<td>&nbsp</td>
+		<td><iframe name="ergebnis3" width=296 height=296></iframe></td>
+		<td>&nbsp</td>
+		<td><iframe name="schiffe3" width=137 height=296></iframe></td>
+		<td>&nbsp</td>
+	</tr>
+</table>
+</body>
+</html>
