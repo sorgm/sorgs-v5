@@ -128,7 +128,7 @@ function URLkomplett(URL) {
 function MenueAnzeigen()
 {
   if (CurrentMenueID!=-1) {
-    with (window.frames("Menue").document) {
+    with (window.frames["Menue"].document) {
       open("text/html");
       write(PreHTMLCode + Menue[CurrentMenueID].HTML() + PostHTMLCode);
       close();
@@ -230,7 +230,8 @@ function Eintrag_Auswahl()
   CurrentMenueID = this.ID;
 
   if (this.URL!="") {
-    window.frames("Inhalt").location.href = this.URL;
+    var f = window.frames["Inhalt"]
+    if (!!f) {f.location.href = this.URL;}
   }
 
 }
