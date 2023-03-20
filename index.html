@@ -9,10 +9,11 @@
 
 <div id="cy"></div>
 
-<div id="vuecontainer"">
+<div id="vuecontainer">
 	<small>
-		<a href="sitemap.html" title="Impressum und Sitemap">sorgs.de</a>, right-click to follow links
-		<a :href="rawdatahref()" download="index-graphdata.js" title="download graph data">*</a>
+		<a href="sitemap.html" title="Impressum und Sitemap">Impressum</a>, right-click to follow links
+		<a :href="rawdatahref()" download="index-graphdata.js" title="download graph data as js file">*</a>
+		<a :href="XmlSitemapHref()" download="sitemap.xml" title="download graph data as xml sitemap">x</a>
 		<input v-model="EditMode" type="checkbox" id="EditMode-checkbox" title="edit mode"/>
 	</small>
 
@@ -81,8 +82,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.16.2/cytoscape.min.js"></script>
 <script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
-<script src="index.js"></script>
-<script type='text/javascript' charset='utf-8' src='index-graphdata.js'></script>
+<script src="index.js?v=202303202123"></script>
+<!--<script type='text/javascript' charset='utf-8' src='index-graphdata.js'></script>-->
 <link href="index.css" rel="stylesheet" />
 </body>
 </html>

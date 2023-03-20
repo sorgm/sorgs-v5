@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url xmlns="" key="Interessen">
+        <position>{"x":0.4016322113012245,"y":0.41269923109344453}</position>
+        <xyzzz>sbkjkh</xyzzz>
+        <color>#700</color>
+    </url>
+    <url xmlns="" key="Digitalisierung">
+        <position>{"x":0.3126056133758054,"y":0.6000890938575166}</position>
+        <description>Ich bin professionell interessiert an Daten in jeglicher Form.
+Privat sind noch zu viele Dinge nicht digitalisiert (Bilder, Fotoalben, Dokumente etc.). Außerdem ist im Bereich Genealogie noch einiges zu strukturieren. Dies gilt auch für die Musiksammlung und damit die Strukturierung der Musikstile.
+Grundsätzlich sehe ich im Privatleben sinnvollen Digitalisierungsbedarf, will mich aber nicht unnötig viel in meiner privaten Zeit mit geschäftlichen Themen beschäftigen. Berichte über neue Technologien lese ich trotzdem immer gerne.</description>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Webdesign">
+        <position>{"x":0.15313488652595178,"y":0.5814180478722067}</position>
+        <isTargetOf>
+            <url key="Digitalisierung"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="marineraetsel">
+        <position>{"x":0.06264903261737019,"y":0.5796291061288638}</position>
+        <loc>marineraetsel.html</loc>
+        <label>Marine-Rätsel</label>
+        <classes>["internallink"]</classes>
+        <isTargetOf>
+            <url key="Webdesign"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Irland">
+        <position>{"x":0.8974415363164929,"y":0.7136917743347077}</position>
+    </url>
+    <url xmlns="" key="Naturphilosophie">
+        <position>{"x":0.3034963214976869,"y":0.2946934252799674}</position>
+        <description>"Die Naturphilosophie versucht, die Natur in ihrer Gesamtheit aufzufassen und in ihren allgemeinen wie partikulären Strukturen zu beschreiben, theoretisch zu erklären und zu deuten." (Naturphilosophie-Wikipedia)
+Mathematik, Astronomie, Geografie, Philosophie (insbesondere Ethik, Ontologie und Kosmologie)</description>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="piermittlung">
+        <position>{"x":0.28507129920886287,"y":0.1589111738651875}</position>
+        <loc>piermittlung.html</loc>
+        <label>Ermittlung von PI</label>
+        <classes>["internallink"]</classes>
+        <isTargetOf>
+            <url key="Naturphilosophie"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="OneDrive">
+        <position>{"x":1.0325632548134973,"y":0.5456834344076539}</position>
+        <loc>https://onedrive.live.com/?id=root&amp;cid=9A60FB056DE4690E</loc>
+    </url>
+    <url xmlns="" key="Dokumentarchiv">
+        <position>{"x":0.8612789379595742,"y":0.29979547086191616}</position>
+        <loc>https://onedrive.live.com/?id=F3A61689ED4B2A81!566&amp;cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154676&amp;mcid=9A60FB056DE4690E&amp;sd=1</loc>
+        <isTargetOf>
+            <url key="OneDrive"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Bucharchiv">
+        <position>{"x":0.7967022494833207,"y":0.45311122013561045}</position>
+        <loc>https://onedrive.live.com/?id=F3A61689ED4B2A81!1771&amp;cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154726&amp;mcid=9A60FB056DE4690E&amp;sd=1</loc>
+        <isTargetOf>
+            <url key="OneDrive"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Anleitungen">
+        <position>{"x":1.0428371668167506,"y":0.1430932277136891}</position>
+        <loc>https://onedrive.live.com/?id=F3A61689ED4B2A81!1097&amp;cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154676&amp;mcid=9A60FB056DE4690E&amp;sd=1</loc>
+        <isTargetOf>
+            <url key="Dokumentarchiv"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Gesundheit">
+        <position>{"x":0.7413712716742267,"y":0.0901414787716378}</position>
+        <loc>https://onedrive.live.com/?id=F3A61689ED4B2A81!4043&amp;cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154676&amp;mcid=9A60FB056DE4690E&amp;sd=1</loc>
+        <isTargetOf>
+            <url key="Dokumentarchiv"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Dokumente">
+        <position>{"x":0.9076247255671316,"y":1.0079764341867838}</position>
+        <loc>https://onedrive.live.com/?id=9A60FB056DE4690E!134&amp;cid=9A60FB056DE4690E</loc>
+        <isTargetOf>
+            <url key="OneDrive"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Coding">
+        <position>{"x":0.3687831764381964,"y":0.8499381323722804}</position>
+        <loc>https://onedrive.live.com/?id=9A60FB056DE4690E!144504&amp;cid=9A60FB056DE4690E</loc>
+        <isTargetOf>
+            <url key="Dokumente"/>
+            <url key="Digitalisierung"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Genealogie">
+        <position>{"x":0.5156067904416937,"y":0.7754512442544893}</position>
+        <loc>https://onedrive.live.com/?id=9A60FB056DE4690E!644&amp;cid=9A60FB056DE4690E</loc>
+        <isTargetOf>
+            <url key="Dokumente"/>
+            <url key="Geschichte_und_Genealogie"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Geschichte">
+        <position>{"x":0.6358506338309833,"y":0.7237683883523608}</position>
+        <loc>https://onedrive.live.com/?id=9A60FB056DE4690E!144507&amp;cid=9A60FB056DE4690E</loc>
+        <isTargetOf>
+            <url key="Dokumente"/>
+            <url key="Geschichte_und_Genealogie"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Cytoscape">
+        <position>{"x":0.19566168013017707,"y":0.6672794416783493}</position>
+        <loc>https://js.cytoscape.org/</loc>
+        <isTargetOf>
+            <url key="Webdesign"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="cytoscape_js_cola">
+        <position>{"x":0.23260152957346114,"y":0.7401764577813573}</position>
+        <label>cytoscape.js-cola</label>
+        <loc>https://github.com/cytoscape/cytoscape.js-cola</loc>
+        <isTargetOf>
+            <url key="Cytoscape"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="WebCola">
+        <position>{"x":0.2607914846652379,"y":0.8328134562521842}</position>
+        <loc>https://ialab.it.monash.edu/webcola/</loc>
+        <isTargetOf>
+            <url key="cytoscape_js_cola"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="W3Schools">
+        <position>{"x":0.10839352149516593,"y":0.6851097195618672}</position>
+        <loc>https://www.w3schools.com/cssref/default.asp</loc>
+        <isTargetOf>
+            <url key="Webdesign"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Geschichte_und_Genealogie">
+        <position>{"x":0.5672078136457915,"y":0.5511110394204302}</position>
+        <description>Ich bin interessiert an europäischer Geschichte im Allgemeinen und am gälisches Hochmittelalter im Speziellen. An letzterem habe ich gut 10 Jahre intensiv privat geforscht; mein Schwerpunkt liegt am persönlichen Leben und an der Einordnung in europäische Wanderbewegungen. Könige und Kriege interessieren mich kaum.
+			Außerdem habe ich die genealogische Daten meines Schücker-Großvaters geerbt und die Daten der Sorgs vom Verein der Vertriebenen. Diese Daten katalogisiere ich und bin erfreut etwas über meine Ahnen zu erfahren. Zu eigener Recherche bin ich bisher nicht gekommen, weil die Masse der vorhandenen Daten noch nicht fertig bearbeitet ist.</description>
+        <label>Geschichte und Genealogie</label>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="15_Jh_">
+        <position>{"x":0.7905660477334746,"y":0.7556415003487638}</position>
+        <label>15. Jh.</label>
+    </url>
+    <url xmlns="" key="Tanzen_Musikstile_und_Singen">
+        <position>{"x":0.21617557484370728,"y":0.33638963323447924}</position>
+        <description>Nahezu jede Form des Tanzens liegt mir, ich habe aber keinen Bedarf daran, Musik nur zu hören. Die Strukturierung von Musik in Musikstile als Hilfsmittel, um über Musik zu reden liegt mir seit langem.
+Singen würde ich gerne, aber einen Chor zu finden der passt und dann noch den Mut zu haben anzurufen ist mir noch nicht gelungen.</description>
+        <label>Tanzen, Musikstile und Singen</label>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Gartenarbeit_und_Natur">
+        <position>{"x":0.4743098446928128,"y":0.24030759165509558}</position>
+        <description>Pflanzen und Tiere erkennen, Ruhe durch meditatives Arbeiten, Waldbaden
+Nicht ordnen, gießen, düngen. Der Garten muss sich selbst erhalten.
+Im Wald wäre ich gerne viel mehr – aber nicht allein. Und jemanden kennen zu lernen scheitert wieder an Schüchternheit und Ängsten.</description>
+        <label>Gartenarbeit und Natur</label>
+        <isTargetOf>
+            <url key="Interessen"/>
+            <url key="Gesundheit">
+                <label>is part of</label>
+                <classes>["dashed","bidirectional"]</classes>
+            </url>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Schreiben_Malen_Werken">
+        <position>{"x":0.1492624719940798,"y":0.4110982694688117}</position>
+        <description>Woran ich hier scheitere, ist mir unklar. Eigentlich liegt das Problem darin, dass ich mit Kunst um der Kunst willen nicht klarkomme. Sobald es einen Grund gibt, setze ich alles um.</description>
+        <label>Schreiben, Malen, Werken</label>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Die_Welt_entdecken">
+        <position>{"x":0.21943688492344302,"y":0.49960144506088566}</position>
+        <description>Die Welt beginnt vor der Haustür, der nächste Bach ist bereits interessant, das nächste Tal bietet aufregende Einsichten. Wald und Wildnis sind allerdings schon ohne Auto nicht zu erreichen und für fremde Länder braucht es ggf. Schiff und Flugzeug. Ökologische Überlegungen halten mich von vielem ab und mit der Familie sind nicht alle Ziele erreichbar.</description>
+        <label>Die Welt entdecken</label>
+        <isTargetOf>
+            <url key="Interessen"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Geschichtsb_cher">
+        <position>{"x":0.7437053658515436,"y":0.5453352431573943}</position>
+        <loc>https://onedrive.live.com/?id=F3A61689ED4B2A81!2770&amp;cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154726&amp;mcid=9A60FB056DE4690E&amp;sd=1</loc>
+        <label>Geschichtsbücher</label>
+        <isTargetOf>
+            <url key="Bucharchiv"/>
+            <url key="Geschichte_und_Genealogie"/>
+        </isTargetOf>
+    </url>
+    <url xmlns="" key="Chronicon_Scotorum">
+        <position>{"x":0.8534117690878473,"y":0.6201183725965708}</position>
+        <loc>https://onedrive.live.com/?cid=F3A61689ED4B2A81&amp;mid=9A60FB056DE4690E!154726&amp;mcid=9A60FB056DE4690E&amp;sd=1&amp;id=F3A61689ED4B2A81!5010&amp;parId=F3A61689ED4B2A81!5008&amp;o=OneUp</loc>
+        <label>Chronicon Scotorum</label>
+        <isTargetOf>
+            <url key="Geschichtsb_cher"/>
+            <url key="Irland"/>
+            <url key="15_Jh_"/>
+        </isTargetOf>
+    </url>
+</urlset>
