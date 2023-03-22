@@ -38,7 +38,10 @@ a.button {
     -moz-appearance: button;
     appearance: button;
 }
-ul {margin-left: 20px; padding-left: 0px;}
+ul {
+    margin-left: 20px;
+    padding-left: 0px;
+}
 
 /* cytoscape */
 
@@ -81,21 +84,7 @@ aside.info textarea {
 }
 
 @media screen {
-    /*body {
-        background-color: black;
-        color: lightgrey;
-    }*/
-
-    /*#vuecontainer {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-        height: 1px;
-    }*/
-
     .printonly {
         display: none;
     }
-
 }

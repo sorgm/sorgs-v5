@@ -1,9 +1,9 @@
-XGD({
+{
 	"Nodes": [
 		{
 			"position": {
-				"x": 0.4016322113012245,
-				"y": 0.41269923109344453
+				"x": 0.3089731504714467,
+				"y": 0.47043671434057727
 			},
 			"key": "Interessen",
 			"xyzzz": "sbkjkh",
@@ -45,16 +45,16 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.3034963214976869,
-				"y": 0.2946934252799674
+				"x": 0.2776379789405396,
+				"y": 0.1561234654868491
 			},
 			"key": "Naturphilosophie",
 			"description": "\"Die Naturphilosophie versucht, die Natur in ihrer Gesamtheit aufzufassen und in ihren allgemeinen wie partikulären Strukturen zu beschreiben, theoretisch zu erklären und zu deuten.\" (Naturphilosophie-Wikipedia)\nMathematik, Astronomie, Geografie, Philosophie (insbesondere Ethik, Ontologie und Kosmologie)"
 		},
 		{
 			"position": {
-				"x": 0.28507129920886287,
-				"y": 0.1589111738651875
+				"x": 0.06419795653322966,
+				"y": 0.13004243224162118
 			},
 			"key": "piermittlung",
 			"iri": "piermittlung.html",
@@ -65,24 +65,24 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 1.0325632548134973,
-				"y": 0.5456834344076539
+				"x": 1.1446160725611356,
+				"y": 0.9902620554105751
 			},
 			"key": "OneDrive",
 			"iri": "https://onedrive.live.com/?id=root&cid=9A60FB056DE4690E"
 		},
 		{
 			"position": {
-				"x": 0.8612789379595742,
-				"y": 0.29979547086191616
+				"x": 1.1446432751483135,
+				"y": 0.06114720677376799
 			},
 			"key": "Dokumentarchiv",
 			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!566&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1"
 		},
 		{
 			"position": {
-				"x": 0.7967022494833207,
-				"y": 0.45311122013561045
+				"x": 1.024040177798241,
+				"y": 0.34148541919115416
 			},
 			"key": "Bucharchiv",
 			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!1771&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1"
@@ -105,8 +105,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.9076247255671316,
-				"y": 1.0079764341867838
+				"x": 0.5456079297670693,
+				"y": 0.9868060236628354
 			},
 			"key": "Dokumente",
 			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!134&cid=9A60FB056DE4690E"
@@ -121,8 +121,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.5156067904416937,
-				"y": 0.7754512442544893
+				"x": 0.4830325100865252,
+				"y": 0.7289532882849261
 			},
 			"key": "Genealogie",
 			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!644&cid=9A60FB056DE4690E"
@@ -170,8 +170,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.5672078136457915,
-				"y": 0.5511110394204302
+				"x": 0.5200556555091236,
+				"y": 0.45698730950437444
 			},
 			"key": "Geschichte_und_Genealogie",
 			"description": "Ich bin interessiert an europäischer Geschichte im Allgemeinen und am gälisches Hochmittelalter im Speziellen. An letzterem habe ich gut 10 Jahre intensiv privat geforscht; mein Schwerpunkt liegt am persönlichen Leben und an der Einordnung in europäische Wanderbewegungen. Könige und Kriege interessieren mich kaum.\n\t\t\tAußerdem habe ich die genealogische Daten meines Schücker-Großvaters geerbt und die Daten der Sorgs vom Verein der Vertriebenen. Diese Daten katalogisiere ich und bin erfreut etwas über meine Ahnen zu erfahren. Zu eigener Recherche bin ich bisher nicht gekommen, weil die Masse der vorhandenen Daten noch nicht fertig bearbeitet ist.",
@@ -187,8 +187,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.21617557484370728,
-				"y": 0.33638963323447924
+				"x": 0.14398770187167104,
+				"y": 0.2844258983120599
 			},
 			"key": "Tanzen_Musikstile_und_Singen",
 			"description": "Nahezu jede Form des Tanzens liegt mir, ich habe aber keinen Bedarf daran, Musik nur zu hören. Die Strukturierung von Musik in Musikstile als Hilfsmittel, um über Musik zu reden liegt mir seit langem.\nSingen würde ich gerne, aber einen Chor zu finden der passt und dann noch den Mut zu haben anzurufen ist mir noch nicht gelungen.",
@@ -196,8 +196,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.4743098446928128,
-				"y": 0.24030759165509558
+				"x": 0.42151572863863707,
+				"y": 0.1594751151091099
 			},
 			"key": "Gartenarbeit_und_Natur",
 			"description": "Pflanzen und Tiere erkennen, Ruhe durch meditatives Arbeiten, Waldbaden\nNicht ordnen, gießen, düngen. Der Garten muss sich selbst erhalten.\nIm Wald wäre ich gerne viel mehr – aber nicht allein. Und jemanden kennen zu lernen scheitert wieder an Schüchternheit und Ängsten.",
@@ -205,8 +205,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.1492624719940798,
-				"y": 0.4110982694688117
+				"x": 0.06091313492382652,
+				"y": 0.36683286564601003
 			},
 			"key": "Schreiben_Malen_Werken",
 			"description": "Woran ich hier scheitere, ist mir unklar. Eigentlich liegt das Problem darin, dass ich mit Kunst um der Kunst willen nicht klarkomme. Sobald es einen Grund gibt, setze ich alles um.",
@@ -214,8 +214,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.21943688492344302,
-				"y": 0.49960144506088566
+				"x": 0.1116937909353293,
+				"y": 0.4688081206624149
 			},
 			"key": "Die_Welt_entdecken",
 			"description": "Die Welt beginnt vor der Haustür, der nächste Bach ist bereits interessant, das nächste Tal bietet aufregende Einsichten. Wald und Wildnis sind allerdings schon ohne Auto nicht zu erreichen und für fremde Länder braucht es ggf. Schiff und Flugzeug. Ökologische Überlegungen halten mich von vielem ab und mit der Familie sind nicht alle Ziele erreichbar.",
@@ -223,8 +223,8 @@ XGD({
 		},
 		{
 			"position": {
-				"x": 0.7437053658515436,
-				"y": 0.5453352431573943
+				"x": 0.7286213326932077,
+				"y": 0.3548015484418567
 			},
 			"key": "Geschichtsb_cher",
 			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!2770&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1",
@@ -371,4 +371,4 @@ XGD({
 			]
 		}
 	]
-});
+}

@@ -432,7 +432,8 @@ XGD({
         };
     })
     .on("cxttap", "node[iri]",(ev) => { // right-click
-        document.location = ev.target.data().iri;
+        //document.location = ev.target.data().iri;
+        window.open(ev.target.data().iri, '_blank').focus();
     })
             
     /***************************************************************************************************
@@ -517,14 +518,12 @@ XGD({
                 }
             },
 
-            rawdata() { return {
-                
+            rawdata() { return {    
                 Nodes: 
                     Object.keys(this.Nodes).map((key) => {
                         var app = Object.assign({}, this.Nodes[key]);
                         return app; // including unknown attributes
                     }),
-    
                 Edges: 
                     Object.keys(this.Edges).map((key) => {
                         var df = Object.assign({}, this.Edges[key]);
@@ -535,74 +534,55 @@ XGD({
                 };
             },
             rawdatahref() {
-                return 'data:application/json,XGD('+encodeURIComponent(JSON.stringify(this.rawdata(),null,'\t'))+');'
+                return 'data:application/json,'+encodeURIComponent(JSON.stringify(this.rawdata(),null,'\t'));
             },
 
             XmlSitemap() {
+
+                // https://www.sitemaps.org/protocol.html
+                /* <?xml version="1.0" encoding="UTF-8"?>
+                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                   <url>
+                      <loc>http://www.example.com/</loc>
+                      <lastmod>2005-01-01</lastmod>
+                      <changefreq>monthly</changefreq>
+                      <priority>0.8</priority>
+                   </url>
+                </urlset> */
+
                 var blankXmlDoc = `<?xml version="1.0" encoding="UTF-8"?>
                 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                    <url xmlns="">
+                        <loc>http://sorgs.de/index.html</loc>
+                    </url>
+                    <url xmlns="">
+                        <loc>http://sorgs.de/impressum.html</loc>
+                    </url>
                 </urlset>`;
                 var xmlParser = new DOMParser();
                 var xmlDoc = xmlParser.parseFromString(blankXmlDoc,"text/xml");
                 var urlset = xmlDoc.getElementsByTagName("urlset")[0];
                 Object.keys(this.Nodes).forEach((nodekey, nodeindex) => {
                     var node = this.Nodes[nodekey];
-                    var url = xmlDoc.createElement("url");
-                    var urlKey = xmlDoc.createAttribute("key");
-                    urlKey.value = nodekey;
-                    url.setAttributeNode(urlKey);
-                    Object.keys(node).forEach((attributekey, attributeindex) => {
-                        var attributenode;
-                        if (attributekey == "key") {
-                            // nop
-                        } else if (attributekey == "iri") {
-                            attributenode = xmlDoc.createElement("loc");
-                            attributenode.textContent = node[attributekey];
-                            url.appendChild(attributenode);
-                        } else if (["position","classes"].includes(attributekey)) {
-                            attributenode = xmlDoc.createElement(attributekey);
-                            attributenode.textContent = JSON.stringify(node[attributekey]);
-                            url.appendChild(attributenode);
-                        } else {
-                            attributenode = xmlDoc.createElement(attributekey);
-                            attributenode.textContent = node[attributekey];
-                            url.appendChild(attributenode);
-                        }
-                    });
-                    var sources = node.isTargetOf;
-                    if (Object.keys(sources).length > 0) {
-                        var istargetof = xmlDoc.createElement("isTargetOf");
-                        Object.keys(sources).forEach((sourcekey, sourceindex) => {
-                            //<isTargetOf><url key="Interessen"><label>sjksncdf</label></url></isTargetOf>
-                            var source = sources[sourcekey];
-                            var sourceurl = xmlDoc.createElement("url");
-                            var sourceurlkey = xmlDoc.createAttribute("key");
-                            sourceurlkey.textContent = sourcekey;
-                            sourceurl.setAttributeNode(sourceurlkey);
-                            Object.keys(source).forEach((attributekey, attributeindex) => {
-                                var attributenode;
-                                if (["key","source","target"].includes(attributekey)) {
-                                    // nop
-                                } else if (attributekey == "iri") {
-                                    attributenode = xmlDoc.createElement("loc");
-                                    attributenode.textContent = source[attributekey];
-                                    sourceurl.appendChild(attributenode);
-                                } else if (["position","classes"].includes(attributekey)) {
-                                    attributenode = xmlDoc.createElement(attributekey);
-                                    attributenode.textContent = JSON.stringify(source[attributekey]);
-                                    sourceurl.appendChild(attributenode);
-                                } else {
-                                    attributenode = xmlDoc.createElement(attributekey);
-                                    attributenode.textContent = source[attributekey];
-                                    sourceurl.appendChild(attributenode);
-                                }        
-                            });
-                            istargetof.appendChild(sourceurl);
+                    if ((!!node.iri) && (!node.iri.includes('/'))) {
+
+                        var url = xmlDoc.createElement("url");
+                        var attributeNode = xmlDoc.createElement("loc");
+                        attributeNode.textContent = 'http://sorgs.de/' + node.iri;
+                        url.appendChild(attributeNode);
+
+                        Object.keys(node).forEach((attributeKey) => {
+                            if (["lastmod","changefreq","priority"].includes(attributeKey)) {
+                                attributeNode = xmlDoc.createElement(attributeKey);
+                                attributeNode.textContent = 'http://sorgs.de/' + node[attributeKey];
+                                url.appendChild(attributeNode)
+                            }
                         });
-                        url.appendChild(istargetof);
+
+                        urlset.appendChild(url);
                     }
-                    urlset.appendChild(url);
                 });
+                //console.log(xmlDoc);
                 return xmlDoc;
             },
             XmlSitemapHref() {
@@ -641,79 +621,17 @@ XGD({
 }; // end XGD
 
 (() => {
-    // source: https://stackoverflow.com/questions/14106501/read-xml-file-using-javascript-from-a-local-folder
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'sitemap.xml?v=202303202121', true);
+    // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
+    fetch("index.json?v=202303212117")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        XGD(data);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
 
-    xhr.timeout = 2000; // time in milliseconds
-
-    xhr.onload = function () {
-        // Request finished. Do processing here.
-        var urlset = this.responseXML.getElementsByTagName("urlset")[0];
-
-        /*
-        // transform sitemap.xml to internal format:
-        XGD({
-            Nodes: [{"key": string, "label": string 0:1, "position": {x: real, y: real}},
-                    "group": string 0:1, "symbol": url 0:1, "iri": url 0:1,
-                    "color": int32 0:1, "classes": [string ..] 0:n,
-                    "description": string 0:1, "comment": string 0:1} ..],
-            Edges: [{"source": string, "target": string,
-                    "label": string, "color": int32 0:1, "classes": [string ..] 0:n,
-                    "description": string 0:1, "comment": string 0:1} ..]
-            // predefined classes in Edge: bidirectional, dotted, future, dashed, manual
-        });
-        */
-
-        var rawdata = {Nodes: [], Edges: []};
-        Array.from(urlset.children).forEach((value,index) => {
-            var newNode = {};
-            var childArray = Array.from(value.children).concat(Array.from(value.attributes));
-            var newNodeKey = value.attributes.getNamedItem("key").textContent;
-            newNode["key"] = newNodeKey;
-            Object.keys(childArray).forEach((keyvalue,keyindex) => {
-                var nodeName = childArray[keyindex].nodeName;
-                if (["#text","xmlns","key"].includes(nodeName)) {
-                    // nop
-                } else if (nodeName == "loc") {
-                    newNode.iri = childArray[keyindex].textContent;
-                } else if (["position","classes"].includes(nodeName)) {
-                    newNode[nodeName] = JSON.parse(childArray[keyindex].textContent);
-                } else if (nodeName == "isTargetOf") {
-                    Array.from(childArray[keyindex].children).forEach((targetnode,targetindex) => {
-                        var newEdge = {};
-                        var targetchildArray = Array.from(targetnode.children).concat(Array.from(targetnode.attributes));
-                        Object.keys(targetchildArray).forEach((targetkeyvalue,targetkeyindex) => {
-                            var targetnodeName = targetchildArray[targetkeyindex].nodeName;
-                            if (["#text","xmlns"].includes(targetnodeName)) {
-                                // nop
-                            } else if (targetnodeName == "key") {
-                                newEdge["source"] = targetchildArray[targetkeyindex].textContent;
-                            } else if (targetnodeName == "classes") {
-                                newEdge[targetnodeName] = JSON.parse(targetchildArray[targetkeyindex].textContent);
-                            } else {
-                                newEdge[targetnodeName] = targetchildArray[targetkeyindex].textContent;
-                            }
-                        });
-                        newEdge["target"] = newNodeKey;
-                        rawdata.Edges.push(newEdge);
-                    });
-                } else {
-                    newNode[nodeName] = childArray[keyindex].textContent;
-                }
-            });
-            rawdata.Nodes.push(newNode);
-        });
-        //console.log(JSON.stringify(rawdata,null,'\t'));
-        XGD(rawdata);
-
-    };
-
-    xhr.ontimeout = function (e) {
-        // XMLHttpRequest timed out. Do something here.
-        console.log("XMLHttpRequest timed out");
-    };
-
-    xhr.send(null);
 })();
