@@ -541,7 +541,7 @@ XGD({
 
                 // https://www.sitemaps.org/protocol.html
                 /* <?xml version="1.0" encoding="UTF-8"?>
-                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
                    <url>
                       <loc>http://www.example.com/</loc>
                       <lastmod>2005-01-01</lastmod>
@@ -551,12 +551,12 @@ XGD({
                 </urlset> */
 
                 var blankXmlDoc = `<?xml version="1.0" encoding="UTF-8"?>
-                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
                     <url xmlns="">
-                        <loc>http://sorgs.de/index.html</loc>
+                        <loc>https://sorgs.de/index.html</loc>
                     </url>
                     <url xmlns="">
-                        <loc>http://sorgs.de/impressum.html</loc>
+                        <loc>https://sorgs.de/impressum.html</loc>
                     </url>
                 </urlset>`;
                 var xmlParser = new DOMParser();
@@ -568,13 +568,13 @@ XGD({
 
                         var url = xmlDoc.createElement("url");
                         var attributeNode = xmlDoc.createElement("loc");
-                        attributeNode.textContent = 'http://sorgs.de/' + node.iri;
+                        attributeNode.textContent = 'https://sorgs.de/' + node.iri;
                         url.appendChild(attributeNode);
 
                         Object.keys(node).forEach((attributeKey) => {
                             if (["lastmod","changefreq","priority"].includes(attributeKey)) {
                                 attributeNode = xmlDoc.createElement(attributeKey);
-                                attributeNode.textContent = 'http://sorgs.de/' + node[attributeKey];
+                                attributeNode.textContent = node[attributeKey];
                                 url.appendChild(attributeNode)
                             }
                         });
