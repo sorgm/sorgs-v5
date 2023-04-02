@@ -35,7 +35,7 @@ function InitMenue2()
   strAction = "InitMenue2();";
 
   for (i=0; i < window.frames.length; ++i) {
-    if (window.frames[i].name="Inhalt") {
+    if (window.frames[i].name=="Inhalt") {
       strAction = "Menue[0].Auswahl()";
     }
   }
@@ -110,7 +110,7 @@ function URLkomplett(URL) {
     if (URL.indexOf(":")==-1) {
       if (URL.substring(0,1)!="/") {
         /* relative Angabe absolut machen */
-        docURL = frames("Inhalt").document.URL;
+        docURL = document.getElementsByName("Inhalt")[0].contentWindow.document.URL;
         docURL = docURL.substring(0,docURL.lastIndexOf("/"));
         while (URL.substring(0,3)=="../") {
           URL = URL.substring(3,URL.length);
@@ -128,7 +128,7 @@ function URLkomplett(URL) {
 function MenueAnzeigen()
 {
   if (CurrentMenueID!=-1) {
-    with (window.frames["Menue"].document) {
+    with (document.getElementsByName("Menue")[0].contentWindow.document) {
       open("text/html");
       write(PreHTMLCode + Menue[CurrentMenueID].HTML() + PostHTMLCode);
       close();
@@ -230,7 +230,7 @@ function Eintrag_Auswahl()
   CurrentMenueID = this.ID;
 
   if (this.URL!="") {
-    var f = window.frames["Inhalt"]
+    var f = document.getElementsByName("Inhalt")[0].contentWindow
     if (!!f) {f.location.href = this.URL;}
   }
 

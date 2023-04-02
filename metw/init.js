@@ -1,4 +1,4 @@
-var htmlhead="<html><link rel=\"stylesheet\" type=\"text/css\" href=\"" + BasePath + "metw/sorgs.css\"><body class=\"metw\">";
+var htmlhead="<html><link rel=\"stylesheet\" type=\"text/css\" href=\"" + BasePath + "metw/metw.css\"><body class=\"metw\">";
 var htmlfoot="</body></html>";
 
 var EditionID = "METW";

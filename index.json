@@ -2,373 +2,673 @@
 	"Nodes": [
 		{
 			"position": {
-				"x": 0.3089731504714467,
-				"y": 0.47043671434057727
+				"x": 0.5394472870491821,
+				"y": 0.2849268527250688
 			},
 			"key": "Interessen",
-			"xyzzz": "sbkjkh",
-			"color": "#700"
+			"color": "#700",
+			"Edges": []
 		},
 		{
 			"position": {
-				"x": 0.3126056133758054,
-				"y": 0.6000890938575166
+				"x": 0.47152513869140905,
+				"y": 0.5549314339288329
 			},
 			"key": "Digitalisierung",
-			"description": "Ich bin professionell interessiert an Daten in jeglicher Form.\nPrivat sind noch zu viele Dinge nicht digitalisiert (Bilder, Fotoalben, Dokumente etc.). Außerdem ist im Bereich Genealogie noch einiges zu strukturieren. Dies gilt auch für die Musiksammlung und damit die Strukturierung der Musikstile.\nGrundsätzlich sehe ich im Privatleben sinnvollen Digitalisierungsbedarf, will mich aber nicht unnötig viel in meiner privaten Zeit mit geschäftlichen Themen beschäftigen. Berichte über neue Technologien lese ich trotzdem immer gerne."
+			"description": "Ich bin professionell interessiert an Daten in jeglicher Form.\nPrivat sind noch zu viele Dinge nicht digitalisiert (Bilder, Fotoalben, Dokumente etc.). Außerdem ist im Bereich Genealogie noch einiges zu strukturieren. Dies gilt auch für die Musiksammlung und damit die Strukturierung der Musikstile.\nGrundsätzlich sehe ich im Privatleben sinnvollen Digitalisierungsbedarf, will mich aber nicht unnötig viel in meiner privaten Zeit mit geschäftlichen Themen beschäftigen. Berichte über neue Technologien lese ich trotzdem immer gerne.",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.15313488652595178,
-				"y": 0.5814180478722067
+				"x": 0.356271721669558,
+				"y": 0.7412719272904549
 			},
-			"key": "Webdesign"
+			"key": "Webdesign",
+			"Edges": [
+				{
+					"source": "Digitalisierung"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.06264903261737019,
-				"y": 0.5796291061288638
+				"x": 0.2684457137920894,
+				"y": 0.6180733892475286
 			},
 			"key": "marineraetsel",
 			"iri": "marineraetsel.html",
 			"label": "Marine-Rätsel",
 			"classes": [
 				"internallink"
+			],
+			"Edges": [
+				{
+					"source": "Webdesign"
+				}
+			]
+		},
+		{"key": "JavascriptMDN", "label": "Javascript (MDN)", 
+		"iri": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+		"Edges": [
+			{
+				"source": "Webdesign"
+			}
+		]},
+		{
+			"position": {
+				"x": 0.24070973092552841,
+				"y": 0.39713931274515074
+			},
+			"key": "Geographie",
+			"Edges": [
+				{
+					"source": "Geschichte_und_Genealogie"
+				}
+			]
+		},{"key":"Genealogie",
+		"Edges": [
+			{
+				"source": "Geschichte_und_Genealogie"
+			}
+		]},
+		{"key": "Wikitree", "iri": "https://www.wikitree.com/wiki/Sorg-45",
+		"Edges": [
+			{
+				"source": "Genealogie"
+			}
+		]},
+		{
+			"position": {
+				"x": 0.6228121611242446,
+				"y": 1.019722741948531
+			},
+			"key": "Irland",
+			"Edges": [
+				{
+					"source": "Geographie"
+				}
 			]
 		},
 		{
 			"position": {
-				"x": 0.8974415363164929,
-				"y": 0.7136917743347077
+				"x": 0.6689126751223101,
+				"y": 0.19745696584978256
 			},
-			"key": "Irland"
+			"key": "Britannien",
+			"Edges": [
+				{
+					"source": "Geographie"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.2776379789405396,
-				"y": 0.1561234654868491
+				"x": 0.3133773700308835,
+				"y": 0.5565943980756782
+			},
+			"key": "Skandinavien",
+			"Edges": [
+				{
+					"source": "Geographie"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.7180156360286601,
+				"y": 0.7050749785432323
+			},
+			"key": "Genealogie",
+			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!644&cid=9A60FB056DE4690E",
+			"Edges": [
+				{
+					"source": "Geschichte_und_Genealogie"
+				},
+				{
+					"source": "Dokumente"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.47196251640100867,
+				"y": 0.005252629105399303
 			},
 			"key": "Naturphilosophie",
-			"description": "\"Die Naturphilosophie versucht, die Natur in ihrer Gesamtheit aufzufassen und in ihren allgemeinen wie partikulären Strukturen zu beschreiben, theoretisch zu erklären und zu deuten.\" (Naturphilosophie-Wikipedia)\nMathematik, Astronomie, Geografie, Philosophie (insbesondere Ethik, Ontologie und Kosmologie)"
+			"description": "\"Die Naturphilosophie versucht, die Natur in ihrer Gesamtheit aufzufassen und in ihren allgemeinen wie partikulären Strukturen zu beschreiben, theoretisch zu erklären und zu deuten.\" (Naturphilosophie-Wikipedia)\nMathematik, Astronomie, Geografie, Philosophie (insbesondere Ethik, Ontologie und Kosmologie)",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.06419795653322966,
-				"y": 0.13004243224162118
+				"x": 0.7807191131498004,
+				"y": 0.16466669874873735
+			},
+			"key": "Mathematik",
+			"Edges": [
+				{
+					"source": "Naturphilosophie"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.4181549385601554,
+				"y": -0.19794285716767607
 			},
 			"key": "piermittlung",
 			"iri": "piermittlung.html",
 			"label": "Ermittlung von PI",
 			"classes": [
 				"internallink"
+			],
+			"Edges": [
+				{
+					"source": "Mathematik"
+				},
+				{
+					"source": "Webdesign"
+				}
 			]
 		},
 		{
 			"position": {
-				"x": 1.1446160725611356,
-				"y": 0.9902620554105751
+				"x": 0.8743394782974161,
+				"y": 0.3600454738923848
 			},
 			"key": "OneDrive",
-			"iri": "https://onedrive.live.com/?id=root&cid=9A60FB056DE4690E"
+			"iri": "https://onedrive.live.com/?id=root&cid=9A60FB056DE4690E",
+			"Edges": []
 		},
 		{
 			"position": {
-				"x": 1.1446432751483135,
-				"y": 0.06114720677376799
+				"x": 0.8892765847252833,
+				"y": 0.1244369740267661
 			},
 			"key": "Dokumentarchiv",
-			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!566&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1"
+			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!566&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1",
+			"Edges": [
+				{
+					"source": "OneDrive"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 1.024040177798241,
-				"y": 0.34148541919115416
+				"x": 0.9353783251085973,
+				"y": 0.5191684082614821
 			},
 			"key": "Bucharchiv",
-			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!1771&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1"
+			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!1771&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1",
+			"Edges": [
+				{
+					"source": "OneDrive"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 1.0428371668167506,
-				"y": 0.1430932277136891
+				"x": 0.9728601749974505,
+				"y": -0.016721630932861813
 			},
 			"key": "Anleitungen",
-			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!1097&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1"
+			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!1097&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1",
+			"Edges": [
+				{
+					"source": "Dokumentarchiv"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.7413712716742267,
-				"y": 0.0901414787716378
+				"x": 0.7804988634311509,
+				"y": 0.02160958518024271
 			},
 			"key": "Gesundheit",
-			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!4043&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1"
+			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!4043&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154676&mcid=9A60FB056DE4690E&sd=1",
+			"Edges": [
+				{
+					"source": "Dokumentarchiv"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.5456079297670693,
-				"y": 0.9868060236628354
+				"x": 0.7500962622894715,
+				"y": 0.5270826694255748
 			},
 			"key": "Dokumente",
-			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!134&cid=9A60FB056DE4690E"
+			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!134&cid=9A60FB056DE4690E",
+			"Edges": [
+				{
+					"source": "OneDrive"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.3687831764381964,
-				"y": 0.8499381323722804
+				"x": 0.5877385754073804,
+				"y": 0.6067631302100707
 			},
 			"key": "Coding",
-			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!144504&cid=9A60FB056DE4690E"
+			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!144504&cid=9A60FB056DE4690E",
+			"Edges": [
+				{
+					"source": "Dokumente"
+				},
+				{
+					"source": "Digitalisierung"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.4830325100865252,
-				"y": 0.7289532882849261
+				"x": 0.7127983811412719,
+				"y": 0.38515176203831913
 			},
-			"key": "Genealogie",
-			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!644&cid=9A60FB056DE4690E"
+			"key": "Chronologie",
+			"Edges": [
+				{
+					"source": "Geschichte_und_Genealogie"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.6358506338309833,
-				"y": 0.7237683883523608
-			},
-			"key": "Geschichte",
-			"iri": "https://onedrive.live.com/?id=9A60FB056DE4690E!144507&cid=9A60FB056DE4690E"
-		},
-		{
-			"position": {
-				"x": 0.19566168013017707,
-				"y": 0.6672794416783493
+				"x": 0.34637420708821215,
+				"y": 0.9771100528439649
 			},
 			"key": "Cytoscape",
-			"iri": "https://js.cytoscape.org/"
+			"iri": "https://js.cytoscape.org/",
+			"Edges": [
+				{
+					"source": "Webdesign"
+				}
+			]
 		},
+		{"key": "VueJs", "label": "Vue.js", "iri": "https://vuejs.org/",
+		"Edges": [
+			{
+				"source": "Webdesign"
+			}
+		]},
+		{"key": "PolyfillIo", "label": "Polyfill.io", "iri": "https://cdn.polyfill.io/",
+		"Edges": [
+			{
+				"source": "Webdesign"
+			}
+		]},
+		{"key": "JsCookie", "label": "js-cookie", "iri": "https://github.com/js-cookie/js-cookie",
+		"Edges": [
+			{
+				"source": "Webdesign"
+			}
+		]},
 		{
 			"position": {
-				"x": 0.23260152957346114,
-				"y": 0.7401764577813573
+				"x": 0.308306114289595,
+				"y": 1.1825615652063348
 			},
 			"key": "cytoscape_js_cola",
 			"label": "cytoscape.js-cola",
-			"iri": "https://github.com/cytoscape/cytoscape.js-cola"
+			"iri": "https://github.com/cytoscape/cytoscape.js-cola",
+			"Edges": [
+				{
+					"source": "Cytoscape"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.2607914846652379,
-				"y": 0.8328134562521842
+				"x": 0.25855989190954787,
+				"y": 1.3587910228100304
 			},
 			"key": "WebCola",
-			"iri": "https://ialab.it.monash.edu/webcola/"
+			"iri": "https://ialab.it.monash.edu/webcola/",
+			"Edges": [
+				{
+					"source": "cytoscape_js_cola"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.10839352149516593,
-				"y": 0.6851097195618672
+				"x": 0.2337656959119503,
+				"y": 0.7961215195875214
 			},
 			"key": "W3Schools",
-			"iri": "https://www.w3schools.com/cssref/default.asp"
+			"iri": "https://www.w3schools.com/cssref/default.asp",
+			"Edges": [
+				{
+					"source": "Webdesign"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.5200556555091236,
-				"y": 0.45698730950437444
+				"x": 0.6732539127173935,
+				"y": 0.5236823771399223
 			},
 			"key": "Geschichte_und_Genealogie",
 			"description": "Ich bin interessiert an europäischer Geschichte im Allgemeinen und am gälisches Hochmittelalter im Speziellen. An letzterem habe ich gut 10 Jahre intensiv privat geforscht; mein Schwerpunkt liegt am persönlichen Leben und an der Einordnung in europäische Wanderbewegungen. Könige und Kriege interessieren mich kaum.\n\t\t\tAußerdem habe ich die genealogische Daten meines Schücker-Großvaters geerbt und die Daten der Sorgs vom Verein der Vertriebenen. Diese Daten katalogisiere ich und bin erfreut etwas über meine Ahnen zu erfahren. Zu eigener Recherche bin ich bisher nicht gekommen, weil die Masse der vorhandenen Daten noch nicht fertig bearbeitet ist.",
-			"label": "Geschichte und Genealogie"
+			"label": "Geschichte und Genealogie",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.7905660477334746,
-				"y": 0.7556415003487638
+				"x": 0.3204944874380553,
+				"y": 0.5784497616385899
 			},
-			"key": "15_Jh_",
-			"label": "15. Jh."
+			"key": "Antike",
+			"label": "Antike (0800 B.C. - 0500 A.D.)",
+			"Edges": [
+				{
+					"source": "Chronologie"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.14398770187167104,
-				"y": 0.2844258983120599
+				"x": 0.21413587291399028,
+				"y": 0.6607694666568472
+			},
+			"key": "MA",
+			"label": "Mittelalter (0500-1500)",
+			"Edges": [
+				{
+					"source": "Chronologie"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.29540190901762275,
+				"y": 0.17964433004723712
+			},
+			"key": "FMA",
+			"label": "Frühmittelalter (0500-1000)",
+			"Edges": [
+				{
+					"source": "MA"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.753175010904367,
+				"y": 0.831356481278674
+			},
+			"key": "HMA",
+			"label": "Hochmittelalter (1000-1200)",
+			"Edges": [
+				{
+					"source": "MA"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.7351869855204938,
+				"y": 0.9040262865555053
+			},
+			"key": "SMA",
+			"label": "Spätmittelalter (1200-1500)",
+			"Edges": [
+				{
+					"source": "MA"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.19324713270024235,
+				"y": 0.8280847372358274
+			},
+			"key": "Reformation",
+			"label": "Reformation (1500-1600)",
+			"Edges": [
+				{
+					"source": "Chronologie"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.5150711850098998,
+				"y": 0.7490866931640795
+			},
+			"key": "Neuzeit",
+			"label": "Neuzeit (ab 1600)",
+			"Edges": [
+				{
+					"source": "Chronologie"
+				}
+			]
+		},
+		{
+			"position": {
+				"x": 0.5411629112458042,
+				"y": 0.10282767671666314
 			},
 			"key": "Tanzen_Musikstile_und_Singen",
 			"description": "Nahezu jede Form des Tanzens liegt mir, ich habe aber keinen Bedarf daran, Musik nur zu hören. Die Strukturierung von Musik in Musikstile als Hilfsmittel, um über Musik zu reden liegt mir seit langem.\nSingen würde ich gerne, aber einen Chor zu finden der passt und dann noch den Mut zu haben anzurufen ist mir noch nicht gelungen.",
-			"label": "Tanzen, Musikstile und Singen"
+			"label": "Tanzen, Musikstile und Singen",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
+		{"key": "Wienholt", "label": "Contemporary at Tanzschule Wienholt, Alzey",
+		"iri": "https://www.wienholt.info/tanzkurse/contemporary",
+		"Edges": [{"source": "Tanzen_Musikstile_und_Singen"}]},
 		{
 			"position": {
-				"x": 0.42151572863863707,
-				"y": 0.1594751151091099
+				"x": 0.6557716545390729,
+				"y": 0.09775749182209986
 			},
 			"key": "Gartenarbeit_und_Natur",
 			"description": "Pflanzen und Tiere erkennen, Ruhe durch meditatives Arbeiten, Waldbaden\nNicht ordnen, gießen, düngen. Der Garten muss sich selbst erhalten.\nIm Wald wäre ich gerne viel mehr – aber nicht allein. Und jemanden kennen zu lernen scheitert wieder an Schüchternheit und Ängsten.",
-			"label": "Gartenarbeit und Natur"
+			"label": "Gartenarbeit und Natur",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.06091313492382652,
-				"y": 0.36683286564601003
+				"x": 0.40949500122924115,
+				"y": 0.20907800928751885
 			},
 			"key": "Schreiben_Malen_Werken",
 			"description": "Woran ich hier scheitere, ist mir unklar. Eigentlich liegt das Problem darin, dass ich mit Kunst um der Kunst willen nicht klarkomme. Sobald es einen Grund gibt, setze ich alles um.",
-			"label": "Schreiben, Malen, Werken"
+			"label": "Schreiben, Malen, Werken",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.1116937909353293,
-				"y": 0.4688081206624149
+				"x": 0.4400566426946506,
+				"y": 0.32330591722411295
 			},
 			"key": "Die_Welt_entdecken",
 			"description": "Die Welt beginnt vor der Haustür, der nächste Bach ist bereits interessant, das nächste Tal bietet aufregende Einsichten. Wald und Wildnis sind allerdings schon ohne Auto nicht zu erreichen und für fremde Länder braucht es ggf. Schiff und Flugzeug. Ökologische Überlegungen halten mich von vielem ab und mit der Familie sind nicht alle Ziele erreichbar.",
-			"label": "Die Welt entdecken"
+			"label": "Die Welt entdecken",
+			"Edges": [
+				{
+					"source": "Interessen"
+				}
+			]
 		},
 		{
 			"position": {
-				"x": 0.7286213326932077,
-				"y": 0.3548015484418567
-			},
-			"key": "Geschichtsb_cher",
-			"iri": "https://onedrive.live.com/?id=F3A61689ED4B2A81!2770&cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1",
-			"label": "Geschichtsbücher"
-		},
-		{
-			"position": {
-				"x": 0.8534117690878473,
-				"y": 0.6201183725965708
+				"x": 0.9754332088999943,
+				"y": 0.8474888109967199
 			},
 			"key": "Chronicon_Scotorum",
-			"iri": "https://onedrive.live.com/?cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E!154726&mcid=9A60FB056DE4690E&sd=1&id=F3A61689ED4B2A81!5010&parId=F3A61689ED4B2A81!5008&o=OneUp",
-			"label": "Chronicon Scotorum"
-		}
-	],
-	"Edges": [
-		{
-			"source": "Interessen",
-			"target": "Digitalisierung"
+			"iri": "https://celt.ucc.ie/published/T100016/index.html",
+			"label": "Chronicon Scotorum (1640)",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "SMA"
+				}
+			]
 		},
 		{
-			"source": "Digitalisierung",
-			"target": "Webdesign"
+			"position": {
+				"x": 0.49815154182462773,
+				"y": 0.6593924100129672
+			},
+			"label": "Togail Bruidne Dá Derga (Die Zerstörung der Herberge von Da Derga, um 1100)",
+			"key": "DaDerga",
+			"iri": "https://sourcebooks.fordham.edu/source/1100derga.asp",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "HMA"
+				}
+			]
 		},
 		{
-			"source": "Interessen",
-			"target": "Naturphilosophie"
+			"position": {
+				"x": 0.8280938910445466,
+				"y": 0.6834217178854599
+			},
+			"label": "Gerald von Wales: Reisen durch Irland und Wales (1188)",
+			"key": "GeraldVonWales",
+			"iri": "https://onedrive.live.com/?cid=F3A61689ED4B2A81&mid=9A60FB056DE4690E%21154726&mcid=9A60FB056DE4690E&sd=1&id=F3A61689ED4B2A81%215018&parId=F3A61689ED4B2A81%215008&o=OneUp",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "HMA"
+				}
+			]
 		},
 		{
-			"source": "Naturphilosophie",
-			"target": "piermittlung"
+			"position": {
+				"x": 0.4905468699858102,
+				"y": 0.3805804544414078
+			},
+			"label": "Caradoc of Llangarfan: Gildas' Leben (1130-1150)",
+			"key": "LifeOfGildas",
+			"iri": "https://sourcebooks.fordham.edu/basis/1150-Caradoc-LifeofGildas.asp",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "HMA"
+				}
+			]
 		},
 		{
-			"source": "OneDrive",
-			"target": "Dokumentarchiv"
+			"position": {
+				"x": 0.43839594737952514,
+				"y": 0.5300922618064661
+			},
+			"key": "Heimskringla",
+			"iri": "http://www.mcllibrary.org/Heimskringla/",
+			"label": "Heimskringla (1225)",
+			"Edges": [
+				{
+					"source": "Skandinavien"
+				},
+				{
+					"source": "HMA"
+				}
+			]
 		},
 		{
-			"source": "Webdesign",
-			"target": "marineraetsel"
+			"position": {
+				"x": 0.3765674928412338,
+				"y": 0.45471030468817075
+			},
+			"key": "SocialHistoryAncientIreland",
+			"iri": "https://www.libraryireland.com/SocialHistoryAncientIreland/Contents.php",
+			"label": "A Smaller Social History of Ancient Ireland (1906)",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "Neuzeit"
+				}
+			]
 		},
 		{
-			"source": "OneDrive",
-			"target": "Bucharchiv"
+			"position": {
+				"x": 0.8298216722496421,
+				"y": 0.9755521972828153
+			},
+			"key": "CainLanammna",
+			"label": "Cáin Lánamna (Eherechte, um 0700)",
+			"iri": "https://celt.ucc.ie/published/T102030.html",
+			"description": "Cain Lanamna 'Das Gesetz der Paare', ein altirischer Text aus der Zeit um 700, ist wohl die wichtigste Informationsquelle über Frauen und die Haushaltswirtschaft im frühen Irland. Der Text beschreibt alle anerkannten Ehen und Lebensgemeinschaften, sowohl legale als auch illegale, und informiert über die Aufteilung des Vermögens im Falle einer Scheidung. Der Text wurde über einen Zeitraum von mehreren Jahrhunderten stark beschönigt und gibt Einblicke in die Veränderungen im irischen Rechtssystem. Dieses Buch bietet zum ersten Mal eine englische Übersetzung des gesamten Textes und aller begleitenden Glossen und Kommentare. Es enthält auch eine Einführung in die frühe irische Gesellschaft, linguistische und rechtliche Anmerkungen und ein Glossar zum Traktat. (Quelle: Nielsen Book Data)",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "FMA"
+				}
+			]
 		},
 		{
-			"source": "Dokumentarchiv",
-			"target": "Anleitungen"
+			"position": {
+				"x": 0.6085973260060648,
+				"y": 0.6942278722476259
+			},
+			"label": "Nennius: Historia Brittonum, 8. Jh.",
+			"key": "HistoriaBrittonum",
+			"iri": "https://sourcebooks.fordham.edu/basis/nennius-full.asp",
+			"Edges": [
+				{
+					"source": "Britannien"
+				},
+				{
+					"source": "FMA"
+				}
+			]
 		},
 		{
-			"source": "Dokumentarchiv",
-			"target": "Gesundheit"
-		},
-		{
-			"source": "OneDrive",
-			"target": "Dokumente"
-		},
-		{
-			"source": "Dokumente",
-			"target": "Coding"
-		},
-		{
-			"source": "Digitalisierung",
-			"target": "Coding"
-		},
-		{
-			"source": "Dokumente",
-			"target": "Genealogie"
-		},
-		{
-			"source": "Dokumente",
-			"target": "Geschichte"
-		},
-		{
-			"source": "Webdesign",
-			"target": "Cytoscape"
-		},
-		{
-			"source": "Cytoscape",
-			"target": "cytoscape_js_cola"
-		},
-		{
-			"source": "cytoscape_js_cola",
-			"target": "WebCola"
-		},
-		{
-			"source": "Webdesign",
-			"target": "W3Schools"
-		},
-		{
-			"source": "Interessen",
-			"target": "Geschichte_und_Genealogie"
-		},
-		{
-			"source": "Interessen",
-			"target": "Tanzen_Musikstile_und_Singen"
-		},
-		{
-			"source": "Interessen",
-			"target": "Gartenarbeit_und_Natur"
-		},
-		{
-			"source": "Interessen",
-			"target": "Schreiben_Malen_Werken"
-		},
-		{
-			"source": "Interessen",
-			"target": "Die_Welt_entdecken"
-		},
-		{
-			"source": "Bucharchiv",
-			"target": "Geschichtsb_cher"
-		},
-		{
-			"source": "Geschichte_und_Genealogie",
-			"target": "Geschichtsb_cher"
-		},
-		{
-			"source": "Geschichtsb_cher",
-			"target": "Chronicon_Scotorum"
-		},
-		{
-			"source": "Irland",
-			"target": "Chronicon_Scotorum"
-		},
-		{
-			"source": "15_Jh_",
-			"target": "Chronicon_Scotorum"
-		},
-		{
-			"source": "Geschichte_und_Genealogie",
-			"target": "Genealogie"
-		},
-		{
-			"source": "Geschichte_und_Genealogie",
-			"target": "Geschichte"
-		},
-		{
-			"source": "Gesundheit",
-			"label": "is part of",
-			"target": "Gartenarbeit_und_Natur",
-			"classes": [
-				"dashed",
-				"bidirectional"
+			"position": {
+				"x": 0.709905019783071,
+				"y": 0.9454364670546253
+			},
+			"iri": "https://celt.ucc.ie/published/T100001A/",
+			"label": "The Annals of Ulster (1540)",
+			"key": "UlsterAnnals",
+			"Edges": [
+				{
+					"source": "Irland"
+				},
+				{
+					"source": "SMA"
+				}
 			]
 		}
-	]
+	],
+	"Edges": []
 }

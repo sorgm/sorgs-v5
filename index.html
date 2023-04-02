@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="de-DE-1996">
 <head>
-<title>Startseite</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>Startseite | sorgs.de</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta http-equiv="Cache-control" content="public">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"> -->
 </head>
 <body>
 
 <div id="cy"></div>
 
-<div id="vuecontainer">
+<div id="vuecontainer" style="display:none;">
 	<small>
 		<a href="impressum.html" title="Impressum und Sitemap">Impressum</a>,
-		right-click to follow links,
-		<a :href="rawdatahref()" download="index.json" title="download graph data as json file">*</a>,
-		<a :href="XmlSitemapHref()" download="sitemap.xml" title="download local graph data as xml sitemap">x</a>,
-		<input v-model="EditMode" type="checkbox" id="EditMode-checkbox" title="edit mode"/>
+		<a :href="rawdatahref()" download="index.json" title="Daten als JSON file">*</a>,
+		<a :href="XmlSitemapHref()" download="sitemap.xml" title="Lokale Webseiten als Xml-Sitemap">x</a>,
+		<input v-model="EditMode" type="checkbox" id="EditMode-checkbox" title="Bearbeiten"/>
 	</small>
 
 	<aside v-if="!!SelectedNode && !EditMode" class="info node">
@@ -28,15 +31,15 @@
 			<p v-for="(c,i) in SelectedNode.description.split('\n')" :key="i" v-html="c"></p>
 		</template>
 
-		<h3 v-if="!!SelectedNode.classes">classes</h3>
+		<h3 v-if="!!SelectedNode.classes">Kategorien</h3>
 		<ul v-if="!!SelectedNode.classes">
 			<li v-for="(c,i) in SelectedNode.classes" :key="i" v-html="c"></li>
 		</ul>
-		<h3 v-if="Object.keys(SelectedNode.isTargetOf).length>0">is target of</h3>
+		<h3 v-if="Object.keys(SelectedNode.isTargetOf).length>0">Ursprung:</h3>
 		<ul v-if="Object.keys(SelectedNode.isTargetOf).length>0">
 			<li v-for="(c,i) in Object.keys(SelectedNode.isTargetOf)" :key="i" v-html="c"></li>
 		</ul>
-		<h3 v-if="Object.keys(SelectedNode.isSourceOf).length>0">is source of</h3>
+		<h3 v-if="Object.keys(SelectedNode.isSourceOf).length>0">Einfluss auf:</h3>
 		<ul v-if="Object.keys(SelectedNode.isSourceOf).length>0">
 			<li v-for="(c,i) in Object.keys(SelectedNode.isSourceOf)" :key="i" v-html="c"></li>
 		</ul>
@@ -50,7 +53,7 @@
 				<dd v-if="c!='description'"><input :value="SelectedNode[c]" @change="nodeAttributeChanged" :id="SelectedNode.key+'.'+c"/></dd>
 			</template>
 		</dl>
-		<input value="" @change="newNodeAttribute" :id="SelectedNode.key+'.new'" placeholder="new attribute" />
+		<input value="" @change="newNodeAttribute" :id="SelectedNode.key+'.new'" placeholder="Neues Attribut" />
 	</aside>
 
 	<aside v-if="!!SelectedEdge && !EditMode" class="info edge">
@@ -59,7 +62,7 @@
 		<template v-if="!!SelectedEdge.description">
 			<p v-for="(c,i) in SelectedEdge.description.split('\n')" :key="i" v-html="c"></p>
 		</template>
-		<h3 v-if="!!SelectedEdge.classes">classes</h3>
+		<h3 v-if="!!SelectedEdge.classes">Kategorien</h3>
 		<ul v-if="!!SelectedEdge.classes">
 			<li v-for="(c,i) in SelectedEdge.classes" :key="i" v-html="c"></li>
 		</ul>
@@ -73,17 +76,17 @@
 				<dd v-if="c!='description'"><input :value="SelectedEdge[c]" @change="edgeAttributeChanged" :id="SelectedEdge.key+'.'+c"/></dd>
 			</template>
 		</dl>
-		<input value="" @change="newEdgeAttribute" :id="SelectedEdge.key+'.new'" placeholder="new attribute" />
+		<input value="" @change="newEdgeAttribute" :id="SelectedEdge.key+'.new'" placeholder="Neues Attribut" />
 	</aside>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.16.2/cytoscape.min.js"></script>
-<script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
-<script src="index.js?v=202303230626"></script>
-<link href="index.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js" type="text/javascript"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.16.2/cytoscape.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/webcola/WebCola/cola.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js" type="text/javascript"></script>
+<script src="index.js?v=202303300612" type="text/javascript"></script>
+<link href="index.css" rel="stylesheet" type="text/css" />
 </body>
 </html>

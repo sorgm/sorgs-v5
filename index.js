@@ -1,16 +1,18 @@
-window.XGD = (rawdata) => {
+window.XGD = (rawdata, layout = {name: 'preset'}) => {
 //    console.log(JSON.stringify(rawdata,null,'\t'));
     /*
 XGD({
 	Nodes: [{"key": string, "label": string, "position": {x: real, y: real}},
 			"group": string 0:1, "symbol": url 0:1,
 			"color": int32 0:1, "classes": [string ..] 0:n,
-			"description": string 0:1, "comment": string 0:1} ..],
+			"description": string 0:1, "comment": string 0:1},
+            Edges: [Edge ..] 0:n ..],
 	Edges: [{"source": string, "target": string,
 			"label": string, "color": int32 0:1, "classes": [string ..] 0:n,
 			"description": string 0:1, "comment": string 0:1} ..]
 	// predefined classes in Edge: bidirectional, dotted, future, dashed, manual
-});
+    }, 'preset' // alt e.g. cose, cola
+);
 */
 
     var Nodes = window.Nodes = {};
@@ -38,7 +40,7 @@ XGD({
                             this[k] = JSON.parse(JSON.stringify(arguments[0][k]));
                         }
                     });
-                    if (!!arguments[0].Edges) {
+                    /*if (!!arguments[0].Edges) {
                         arguments[0].Edges.forEach((df) => {
                             if (!!df.target) {
                                 df.source = this;
@@ -48,7 +50,7 @@ XGD({
                             var ed = new Edge(df);
                             Edges[ed.source.key+'-'+ed.target.key] = ed;
                         });
-                    }
+                    }*/
                 } else if (typeof arguments[0] == "string") {
                     this.key = arguments[0];
                 } else {
@@ -165,6 +167,20 @@ XGD({
     
     rawdata.Nodes.forEach((nd) => Nodes[nd.key] = new Node(nd));
     
+    rawdata.Nodes.forEach((nd) => {
+        if (!!nd.Edges) {
+            nd.Edges.forEach((df) => {
+                if (!df.target) {
+                    df.target = nd.key;
+                }
+                if (!df.source) {
+                    df.source = nd.key;
+                }
+                Edges[df.source+'-'+df.target] = new Edge(df);
+            });
+        }
+    });
+
     rawdata.Edges.forEach((df) => Edges[df.source+'-'+df.target] = new Edge(df));
     
     /***************************************************************************************************
@@ -257,11 +273,7 @@ XGD({
                 }})
         },
     
-        layout: {
-            //name: 'cose'
-            //name: 'cola'
-            name: 'preset'
-        },
+        layout: layout,
     
         style: [
             {
@@ -522,15 +534,23 @@ XGD({
                 Nodes: 
                     Object.keys(this.Nodes).map((key) => {
                         var app = Object.assign({}, this.Nodes[key]);
-                        return app; // including unknown attributes
+                        var t = this.Nodes[key].isTargetOf;
+                        app.Edges = 
+                        Object.keys(t).map((sourcekey) => {
+                            var df = Object.assign({}, t[sourcekey]);
+                            df.source = sourcekey;
+                            delete df.target;
+                            return df; // including unknown attributes
+                        })
+                        return app; // including unknown attributes and sourcing edges
                     }),
-                Edges: 
-                    Object.keys(this.Edges).map((key) => {
+                Edges: []
+                    /*Object.keys(this.Edges).map((key) => {
                         var df = Object.assign({}, this.Edges[key]);
                         df.source = df.source.key;
                         df.target = df.target.key;
                         return df; // including unknown attributes
-                    })
+                    })*/
                 };
             },
             rawdatahref() {
@@ -549,31 +569,33 @@ XGD({
                       <priority>0.8</priority>
                    </url>
                 </urlset> */
+                // https://stackoverflow.com/questions/135000/how-to-prevent-blank-xmlns-attributes-in-output-from-nets-xmldocument
 
                 var blankXmlDoc = `<?xml version="1.0" encoding="UTF-8"?>
                 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-                    <url xmlns="">
+                    <url>
                         <loc>https://sorgs.de/index.html</loc>
                     </url>
-                    <url xmlns="">
+                    <url>
                         <loc>https://sorgs.de/impressum.html</loc>
                     </url>
                 </urlset>`;
+                var xmlns = 'https://www.sitemaps.org/schemas/sitemap/0.9';
                 var xmlParser = new DOMParser();
                 var xmlDoc = xmlParser.parseFromString(blankXmlDoc,"text/xml");
                 var urlset = xmlDoc.getElementsByTagName("urlset")[0];
+                urlset.NamespaceURI = xmlns;
                 Object.keys(this.Nodes).forEach((nodekey, nodeindex) => {
                     var node = this.Nodes[nodekey];
                     if ((!!node.iri) && (!node.iri.includes('/'))) {
-
-                        var url = xmlDoc.createElement("url");
-                        var attributeNode = xmlDoc.createElement("loc");
+                        var url = xmlDoc.createElement("url",xmlns);
+                        var attributeNode = xmlDoc.createElement("loc",xmlns);
                         attributeNode.textContent = 'https://sorgs.de/' + node.iri;
                         url.appendChild(attributeNode);
 
                         Object.keys(node).forEach((attributeKey) => {
                             if (["lastmod","changefreq","priority"].includes(attributeKey)) {
-                                attributeNode = xmlDoc.createElement(attributeKey);
+                                attributeNode = xmlDoc.createElement(attributeKey,xmlns);
                                 attributeNode.textContent = node[attributeKey];
                                 url.appendChild(attributeNode)
                             }
@@ -588,7 +610,9 @@ XGD({
             XmlSitemapHref() {
                 var serializer = new XMLSerializer();
                 var xmlString = serializer.serializeToString(this.XmlSitemap());
-                
+                xmlString = xmlString.replace(/ xmlns=""/g, "");
+                //console.log(xmlString);
+
                 return 'data:text/xml,'+encodeURIComponent(xmlString);
             }
         }
@@ -617,18 +641,28 @@ XGD({
         data.SelectedNode = undefined;
         data.SelectedEdge = undefined;
     });
+
+    // vuecontainer anzeigen
+    document.getElementById("vuecontainer").style = "";
     
 }; // end XGD
 
 (() => {
 
     // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-    fetch("index.json?v=202303212117")
+    fetch("index.json?v=202303291910")
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
-        XGD(data);
+        XGD(data,
+            {
+                name: 'cola',
+                padding: 0,
+                nodeSpacing: 0,
+                //edgeLength: 50,
+                animate: false
+            });
     })
     .catch(function(error) {
         console.log(error);

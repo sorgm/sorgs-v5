@@ -40,7 +40,7 @@ function ListeAnzeigen () {
 
       if (SammlungID!="keine") {
         if (!Sammlungsdaten[GetSammlungsindex()]) {
-          with (window.frames["Inhalt"].document) {
+          with (document.getElementsByName("Inhalt")[0].contentWindow.document) {
             URL = BasePath + "metw/sammlungen/" + SammlungID  + ".html";
             return 0;
           }
@@ -58,7 +58,7 @@ function ListeAnzeigen () {
         KartentypID = Typen[k];
 
         if (!Listendaten[GetListindex()]) {
-          with (window.frames["Inhalt"].document) {
+          with (document.getElementsByName("Inhalt")[0].contentWindow.document) {
             URL = BasePath + "metw/listen/" + EditionID + "_" + SprachID + "_" + KartentypID + ".html";
             return 0;
           }
@@ -93,7 +93,7 @@ function ListeAnzeigen () {
 }
 
 function WriteListe () {
-  with (window.frames["Inhalt"].document) {
+  with (document.getElementsByName("Inhalt")[0].contentWindow.document) {
       open("text/html");
       write(htmlhead);
       write("<h1>Kartenlisten</h1>");
@@ -376,7 +376,7 @@ function KarteAnzeigen(KarteEditionID, KarteSprachID, KarteTypID, KarteKartenID)
   KartenID=KarteKartenID;
 
   if (!Kartendaten[GetListindex()]) {
-    with (window.frames["Inhalt"].document) {
+    with (document.getElementsByName("Inhalt")[0].contentWindow.document) {
       URL = BasePath + "metw/daten/" + EditionID + "_" + SprachID + "_" + KartentypID + ".html";
       return 0;
     }
@@ -391,7 +391,7 @@ function AddKartendaten(KartendatenNeu) {
 }
 
 function WriteKarte () {
-  with (window.frames["Inhalt"].document) {
+  with (document.getElementsByName("Inhalt")[0].contentWindow.document) {
       open("text/html");
       write(htmlhead);
       write(KarteHTML());

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-    <url xmlns="">
+    <url>
         <loc>https://sorgs.de/index.html</loc>
     </url>
-    <url xmlns="">
+    <url>
         <loc>https://sorgs.de/impressum.html</loc>
     </url>
-    <url xmlns="">
+    <url>
         <loc>https://sorgs.de/marineraetsel.html</loc>
     </url>
-    <url xmlns="">
+    <url>
         <loc>https://sorgs.de/piermittlung.html</loc>
     </url>
 </urlset>
